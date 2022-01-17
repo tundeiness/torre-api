@@ -1,4 +1,4 @@
-class Api::V1::UsersController < Api::V1::ApiController
+class Api::V1::UsersController < ApplicationController
   API_ENDPOINT = 'https://torre.bio/api'.freeze
   def index
     binding.pry
@@ -46,20 +46,17 @@ class Api::V1::UsersController < Api::V1::ApiController
     )
   end
 
-  private
-  def client
-    @_client ||= Faraday.new(API_ENDPOINT) do |client|
-      client.request :url_encoded
-      client.adapter Faraday.default_adapter
-      # client.headers['Authorization'] = "token #{oauth_token}" if oauth_token.present?
-    end
+
+  def show_person
+    @response = TorreService.get_person_by_username(params['username'])
   end
 
-  def request(http_method:, endpoint:, params: {})
-    response = client.public_send(http_method, endpoint, params)
-    # Oj.load(response.body)
-    # response.body
-    JSON.parse(response.body)
-    # render json: @user
+  def show_opportunity
+    @response = TorreService.get_opportunity_by_id(params['id'])
+  end
+
+  private
+  def user_params
+    params.require(:person).permit(:username)
   end
 end

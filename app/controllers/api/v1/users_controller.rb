@@ -46,13 +46,16 @@ class Api::V1::UsersController < ApplicationController
     )
   end
 
-
-  def show_person
-    @response = TorreService.get_person_by_username(params['username'])
-  end
-
-  def show_opportunity
-    @response = TorreService.get_opportunity_by_id(params['id'])
+  def show
+    if params['username']
+      response = TorreService.get_person_by_username(params['username'])
+      @person = JSON.parse(response)
+      render json: @person
+    else
+      response = TorreService.get_opportunity_by_id(params['id'])
+      @opportunity = JSON.parse(response)
+      render json: @opportunity
+    end
   end
 
   private

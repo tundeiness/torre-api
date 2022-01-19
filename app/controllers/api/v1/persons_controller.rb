@@ -15,7 +15,7 @@ module Api
         name = params[:username]
         @response = RestClient.get 'https://torre.bio/api/bios/' + name , { content_type: :json, accept: :json }
 
-        @person_details = JSON.parse(@response.body)["person"]["flags"]
+        @person_details = JSON.parse(@response.body)['person']['flags']
         render json: @person_details, status: :ok
       end
 

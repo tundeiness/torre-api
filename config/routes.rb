@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       resources :persons
     end
   end
+  # get 'persons#person'
 end
+# , only: %i[person]

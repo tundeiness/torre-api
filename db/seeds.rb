@@ -3,12 +3,5 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-# BASE_URL = 'https://torre.bio/api/bios'
-# res = RestClient.get("https://torre.bio/api/bios/john")
-
-# user_array = JSON.parse(res)
-# binding.pry
-# user_array
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)

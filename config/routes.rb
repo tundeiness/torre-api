@@ -9,12 +9,5 @@ Rails.application.routes.draw do
     end
   end
 
-
-  #get 'persons/:id', to: 'persons#show'
-  get ':persons', to: 'persons#show', as: :person
-  # resources :persons
-  
-  #match 'persons/:id' => 'persons#show', :via => :get
-  #match '/*username', to: redirect { |params| "/api/v1/#{params[:username]}" }
-  # match '/username', to: redirect { |params| "/api/v1/#{params[:username]}" }, :via => [:get, :post]
+  # get ':persons', to: 'persons#show', as: :person
 end

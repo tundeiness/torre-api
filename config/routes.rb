@@ -8,6 +8,4 @@ Rails.application.routes.draw do
       resources :persons, only: :show, param: :username
     end
   end
-
-  # get ':persons', to: 'persons#show', as: :person
 end

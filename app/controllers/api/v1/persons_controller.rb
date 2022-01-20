@@ -13,9 +13,9 @@ module Api
       def show 
         #binding.pry
         name = params[:username]
-        @response = RestClient.get 'https://torre.bio/api/bios/' + name , { content_type: :json, accept: :json }
+        response = RestClient.get 'https://torre.bio/api/bios/' + name , { content_type: :json, accept: :json }
 
-        full_details = JSON.parse(@response.body)
+        full_details = JSON.parse(response.body)
         @filtered_detail = {
           'name': full_details['person']['name'],
           'headline': full_details['person']['professionalHeadline'],

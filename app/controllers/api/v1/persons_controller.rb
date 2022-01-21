@@ -2,7 +2,7 @@ module Api
   module V1
     class PersonsController < ApplicationController
       before_action :person_params
-
+      
       def show
         name = params[:username]
         response = RestClient.get 'https://torre.bio/api/bios/' + name , { content_type: :json, accept: :json }
